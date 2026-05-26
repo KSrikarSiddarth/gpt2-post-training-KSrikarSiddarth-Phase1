@@ -1,0 +1,78 @@
+data:
+  dataset_url: "https://huggingface.co/datasets/OEvortex/Bhagavad_Gita"
+  dataset_name: "OEvortex/Bhagavad_Gita"
+  subset: null
+  split_column: null
+  text_column: "English Translation"
+  language_filter: "english"
+  cache_dir: "./data/cache"
+  train_ratio: 0.90
+  val_ratio: 0.05
+  test_ratio: 0.05
+  seed: 42
+
+tokenizer:
+  name: "gpt2"
+  add_special_tokens: true
+  max_length: 512
+  stride: 128
+  padding: "max_length"
+  truncation: true
+
+model:
+  name: "gpt2"
+  from_pretrained: true
+  freeze_layers: []
+  dropout_override: null
+
+training:
+  output_dir: "./checkpoints"
+  epochs: 3
+  batch_size: 8
+  gradient_accumulation_steps: 4
+  learning_rate: 5.0e-5
+  lr_scheduler: "cosine"
+  warmup_ratio: 0.06
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  fp16: false
+  bf16: false
+  logging_steps: 50
+  eval_steps: 200
+  save_steps: 500
+  save_total_limit: 3
+  early_stopping_patience: 5
+  seed: 42
+  device: "auto"
+
+sampling:
+  max_new_tokens: 200
+  temperature: 1.0
+  top_k: 50
+  top_p: 0.95
+  repetition_penalty: 1.0
+  do_sample: true
+  num_return_sequences: 1
+  seed: null
+
+visualization:
+  output_dir: "./viz"
+  embeddings:
+    enabled: true
+    method: "umap"
+    n_components: 2
+    n_neighbors: 15
+    min_dist: 0.1
+    perplexity: 30
+    colormap: "tab20"
+    max_tokens_to_plot: 500
+    annotate_top_n: 50
+  distributions:
+    enabled: true
+    top_n_tokens: 20
+    save_gif: false
+    dpi: 150
+
+logging:
+  backend: "console"
+  log_dir: "./logs"

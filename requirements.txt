@@ -1,0 +1,17 @@
+torch>=2.2.0
+transformers>=4.40.0
+datasets>=2.19.0
+tokenizers>=0.19.0
+accelerate>=0.29.0
+scikit-learn>=1.4.0
+umap-learn>=0.5.6
+matplotlib>=3.8.0
+plotly>=5.20.0
+pillow>=10.3.0
+imageio>=2.34.0
+tqdm>=4.66.0
+pyyaml>=6.0.1
+numpy>=1.26.0
+wandb>=0.16.0
+pytest>=7.4.0
+pytest-cov>=5.0.0
