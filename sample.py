@@ -74,7 +74,9 @@ def main():
         load_checkpoint(args.checkpoint, model)
     model.eval()
 
-    input_ids = tokenizer.encode(args.prompt, return_tensors="pt").to(device)
+    enc = tokenizer(args.prompt, return_tensors="pt")
+    input_ids = enc["input_ids"].to(device)
+    attention_mask = enc["attention_mask"].to(device)
 
     recorder = None
     if cfg["visualization"]["distributions"]["enabled"]:
@@ -98,6 +100,7 @@ def main():
     with torch.no_grad():
         output_ids = model.generate(
             input_ids,
+            attention_mask=attention_mask,
             max_new_tokens=scfg["max_new_tokens"],
             do_sample=scfg["do_sample"],
             num_return_sequences=scfg["num_return_sequences"],
