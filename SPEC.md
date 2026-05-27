@@ -67,7 +67,7 @@ data:
   dataset_name: "OEvortex/Bhagavad_Gita"   # HF datasets identifier
   subset: null                               # HF config/subset name if applicable
   split_column: null                         # Column that holds train/val/test label
-  text_column: "English Translation"                        # Column containing raw text
+  text_column: "Enlgish Translation"                        # Column containing raw text
   language_filter: "english"                 # Filter rows by language field (null = no filter)
   cache_dir: "./data/cache"
   train_ratio: 0.90
@@ -553,7 +553,7 @@ wandb>=0.16.0               # optional logging backend
 
 | # | Question | Status | Decision / Notes |
 |---|---|---|---|
-| 1 | Exact column name for English translation? | **Resolved** | Column name: `"English Translation"`|
+| 1 | Exact column name for English translation? | **Resolved** | Column name: `"Enlgish Translation"`|
 | 2 | Pre-existing train/val/test splits? | **Resolved** | No — random 90/5/5 split created in preprocessing |
 | 3 | Keep or strip verse metadata? | **Resolved** | Keep (e.g., `"BG 1.1:"` stays as context) |
 | 4 | `model.generate()` vs manual loop? | **Resolved** | `model.generate()` + `LogitsProcessor` hooks |

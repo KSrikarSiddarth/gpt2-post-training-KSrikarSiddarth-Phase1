@@ -13,7 +13,7 @@ inspecting the dataset at runtime are marked **TODO**.
 
 | # | Question | Decision |
 |---|---|---|
-| 1 | Exact column name for English translation |  `"English Translation"`|
+| 1 | Exact column name for English translation |  `"Enlgish Translation"`|
 | 2 | Pre-existing train/val/test splits? | **No** — create random 90/5/5 splits using `cfg.data.seed` |
 | 3 | Keep or strip verse numbering prefixes? | **Keep** — e.g. `"BG 1.1:"` stays as context |
 | 4 | `model.generate()` vs manual loop | **`model.generate()` with custom `LogitsProcessor` subclasses** |
@@ -105,7 +105,7 @@ data:
   dataset_name: "OEvortex/Bhagavad_Gita"
   subset: null
   split_column: null
-  text_column: "English Translation"
+  text_column: "Enlgish Translation"
   language_filter: "english"
   cache_dir: "./data/cache"
   train_ratio: 0.90

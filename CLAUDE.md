@@ -93,9 +93,3 @@ python eval.py --checkpoint checkpoints/best
 - `labels` tensors use `-100` for padding positions (PyTorch cross-entropy ignore index).
 - Checkpoint filenames: `checkpoint_step_{N}/` with `pytorch_model.bin`, `tokenizer/`, `trainer_state.json`.
 - One `LogitsProcessor` subclass per sampling modifier — keep them composable and independently testable.
-
-## TODOs Before First Run
-
-- Verify exact column name for English translation in `OEvortex/Bhagavad_Gita` (assumed `"translation"`).
-- Confirm whether BERTScore evaluation is in scope.
-- Check if the dataset exposes a `language` column (needed for `language_filter`).

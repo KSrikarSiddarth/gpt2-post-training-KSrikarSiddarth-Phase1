@@ -3,7 +3,7 @@ data:
   dataset_name: "OEvortex/Bhagavad_Gita"
   subset: null
   split_column: null
-  text_column: "English Translation"
+  text_column: "Enlgish Translation"
   language_filter: "english"
   cache_dir: "./data/cache"
   train_ratio: 0.90
