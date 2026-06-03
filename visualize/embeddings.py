@@ -3,10 +3,12 @@ import json
 import random
 import string
 from pathlib import Path
-
 import matplotlib.pyplot as plt
 import numpy as np
 import yaml
+
+from model.gpt2 import load_model
+from utils.checkpoint import load_checkpoint
 
 STOPWORDS = frozenset({
     "i", "me", "my", "myself", "we", "our", "ours", "ourselves", "you", "your",
@@ -175,13 +177,10 @@ def main():
     parser.add_argument("--tag", default="manual")
     args = parser.parse_args()
 
-    cfg = _load_cfg(args.config)
-
-    from model.gpt2 import load_model
+    cfg = _load_cfg(args.config)    
     model = load_model(cfg)
 
-    if args.checkpoint:
-        from utils.checkpoint import load_checkpoint
+    if args.checkpoint:        
         load_checkpoint(args.checkpoint, model)
 
     method = args.method or cfg["visualization"]["embeddings"]["method"]

@@ -32,6 +32,10 @@ def load_model(cfg):
         for param in model.transformer.h[i].parameters():
             param.requires_grad = False
 
+    # transformers >= 4.46 warns when loss_type is None (absent in old GPT-2 configs)
+    if getattr(model.config, "loss_type", None) is None:
+        model.config.loss_type = "ForCausalLMLoss"
+
     return model.to(resolve_device(cfg))
 
 
