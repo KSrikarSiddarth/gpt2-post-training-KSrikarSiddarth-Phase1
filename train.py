@@ -1,6 +1,7 @@
 import argparse
 import contextlib
 import random
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -8,6 +9,8 @@ import torch
 import yaml
 from tqdm import tqdm
 from transformers import GPT2TokenizerFast, get_scheduler
+
+sys.path.insert(0, str(Path(__file__).parent))
 
 from data.dataset import get_dataloader
 from model.gpt2 import get_trainable_params, load_model, resolve_device

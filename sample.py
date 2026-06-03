@@ -1,4 +1,5 @@
 import argparse
+import sys
 from pathlib import Path
 
 import torch
@@ -10,6 +11,8 @@ from transformers import (
     TopKLogitsWarper,
     TopPLogitsWarper,
 )
+
+sys.path.insert(0, str(Path(__file__).parent))
 
 from model.gpt2 import load_model, resolve_device
 from utils.checkpoint import load_checkpoint

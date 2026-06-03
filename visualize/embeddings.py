@@ -2,13 +2,16 @@ import argparse
 import json
 import random
 import string
+import sys
 from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 import yaml
 
-from ..model.gpt2 import load_model
-from ..utils.checkpoint import load_checkpoint
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from model.gpt2 import load_model
+from utils.checkpoint import load_checkpoint
 
 STOPWORDS = frozenset({
     "i", "me", "my", "myself", "we", "our", "ours", "ourselves", "you", "your",

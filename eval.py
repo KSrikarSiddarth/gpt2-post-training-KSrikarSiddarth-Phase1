@@ -1,6 +1,7 @@
 import argparse
 import json
 import math
+import sys
 from pathlib import Path
 
 import torch
@@ -8,6 +9,8 @@ import yaml
 from datasets import load_from_disk
 from tqdm import tqdm
 from transformers import GPT2TokenizerFast
+
+sys.path.insert(0, str(Path(__file__).parent))
 
 from data.dataset import get_dataloader
 from model.gpt2 import load_model, resolve_device
