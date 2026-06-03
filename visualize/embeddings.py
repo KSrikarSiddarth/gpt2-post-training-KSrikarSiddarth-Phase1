@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import yaml
 
-from model.gpt2 import load_model
-from utils.checkpoint import load_checkpoint
+from ..model.gpt2 import load_model
+from ..utils.checkpoint import load_checkpoint
 
 STOPWORDS = frozenset({
     "i", "me", "my", "myself", "we", "our", "ours", "ourselves", "you", "your",
